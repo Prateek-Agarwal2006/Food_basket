@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Bookings</title>
+</head>
+<body>
+    <h1>My orders</h1>
+
+    <h2>Pending Orders</h2>
+    {% if pending_orders %}
+        <ul>
+            {% for order in pending_orders %}
+                <li>{{ order.name }} - Rs {{ order.price }}
+                    <ul><li>Ordered at: {{order.order_time}}</li></ul>
+                    <ul><li>Restaurant : {{order.seller}}</li></ul>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No pending orders.</p>
+    {% endif %}
+
+    <h2>Past Orders</h2>
+    {% if past_orders %}
+        <ul>
+            {% for order in past_orders %}
+                <li>{{ order.name }} - Rs {{ order.price }}
+                    <ul>
+                        <li>Ordered at: {{order.order_time}}</li>
+                        <ul><li>Restaurant : {{order.seller}}</li></ul>
+                        <li>
+                            Dish Rating: 
+                            {% if order.dish_rating %}
+                                {{ order.dish_rating.ratings }} stars - {{ order.dish_rating.description }}
+                            {% else %}
+                                Not yet rated - <a href="{% url 'rate_dish' order.dish.id %}">Rate Dish</a>
+                            {% endif %}
+                        </li>
+                        <li>
+                            Restaurant Rating: 
+                            {% if order.restaurant_rating %}
+                                {{ order.restaurant_rating.ratings }} stars - {{ order.restaurant_rating.description }}
+                            {% else %}
+                                Not yet rated - <a href="{% url 'rate_restaurant' order.dish.id %}">Rate Restaurant</a>
+                            {% endif %}
+                        </li>
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No past orders.</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Restaurant Rating</h1>
+
+   
+
+    {% if ratings %}
+        <ul>
+            {% for rating in ratings %}
+                <li> Rating given by <strong>{{ rating.user }}</strong> ----->>  <strong>{{ rating.ratings }}</strong> stars</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No one rated yet.</p>
+    {% endif %}
+</body>
+</html>

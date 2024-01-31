@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rate</title>
+</head>
+<body>
+    <h1>Rate</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit Rating</button>
+    </form>
+
+    <a href="{% url 'view_myorders' %}">Back to My Orders</a>
+</body>
+</html>

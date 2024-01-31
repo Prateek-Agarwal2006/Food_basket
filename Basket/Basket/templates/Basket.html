@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Basket</title>
+</head>
+<body>
+    <h1>Basket/Cart</h1>
+    
+    {% if whole_basket %}
+        <ul>
+            {% for dish in whole_basket %}
+                <li>{{ dish.name }} - RS {{ dish.price }}</li>
+                <ul>{{dish.seller}}
+                <a href="/place_order/{{ dish.id }}" class="btn btn-primary">Order this Item</a>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You have nothing in Basket.</p>
+    {% endif %}
+</body>
+</html>

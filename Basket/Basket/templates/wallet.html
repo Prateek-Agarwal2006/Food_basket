@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Wallet</title>
+<head>
+<body>
+    <div>
+        <h1>Welcome, {{ request.user }}!</h1>
+        <p>Your Wallet Information:</p>
+        <ul>
+            <li><strong>Remaining Amount:</strong>Rs {{ balance }}</li>
+        </ul>
+        <form action="add_money/" method="POST">
+            {% csrf_token %}
+            <button type="submit">Add Money</button>
+        </form>
+    </div>
+</body>
+</html>

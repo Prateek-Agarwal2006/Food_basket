@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Have Some!!</h1>
+
+   
+
+    {% if dishes %}
+        <ul>
+            {% for dish in dishes %}
+                <li>{{ dish.name }} - Rs {{ dish.price }}</li>
+                <ul>{{dish.seller}}
+                <a href="/add_to_basket/{{ dish.id }}" class="btn btn-primary">Add to Basket</a></ul>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No matching dishes found.</p>
+    {% endif %}
+</body>
+</html>

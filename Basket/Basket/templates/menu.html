@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menu</title>
+</head>
+<body>
+    <h1>Menu</h1>
+    <ul>
+        {% for dish in dishes %}
+            <li>{{ dish.name }} - Rs {{ dish.price }}</li>
+        {% empty %}
+            <li>No dishes available.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
