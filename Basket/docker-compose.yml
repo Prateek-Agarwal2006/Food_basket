@@ -6,7 +6,7 @@ services:
     environment:
       POSTGRES_DB: app
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: micromaxq414@
+      POSTGRES_PASSWORD: 
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
